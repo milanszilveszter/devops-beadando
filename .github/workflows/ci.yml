@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Adjust Python version if needed
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      # Step 4: Run unit tests
+      - name: Run unit tests
+        run: |
+          pytest bank_account_unit.py
+
+      # Step 5: Run integration tests
+      - name: Run integration tests
+        run: |
+          pytest bank_account_it.py
