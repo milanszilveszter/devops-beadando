@@ -1,9 +1,10 @@
 import pytest
-import bank_account
+from bank_account import BankAccount
+
 
 
 def test_transaction_flow():
-    account = bank_account("Jane Smith", 200)
+    account = BankAccount("Jane Smith", 200)
     account.deposit(100) 
     account.withdraw(50) 
      

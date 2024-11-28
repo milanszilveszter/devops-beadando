@@ -1,9 +1,9 @@
 import pytest
-import bank_account
+from bank_account import BankAccount
 
 @pytest.fixture
 def account():
-    return bank_account("Árpi Nagy", 100)
+    return BankAccount("Árpi Nagy", 100)
 
 def test_deposit(account):
     assert account.deposit(50) == 150
