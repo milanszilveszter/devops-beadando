@@ -32,9 +32,9 @@ jobs:
       # Step 4: Run unit tests
       - name: Run unit tests
         run: |
-          pytest test/bank_account_unit.py
+          pytest bank_account_unit.py
 
       # Step 5: Run integration tests
       - name: Run integration tests
         run: |
-          pytest test/bank_account_it.py
+          pytest bank_account_it.py
